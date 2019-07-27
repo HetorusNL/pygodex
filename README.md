@@ -1,16 +1,7 @@
-# PyLinBS - Python Linux BootStrap
+# Pygodex - Python Pokemon Go Pokedex
 
-Run this repository to bootstrap a common Linux distribution.
-Targeted at a Raspberry Pi, configures things like:
+Pokedex helper for Pokemon Go, fully controllable from the terminal.
+The commands to the pokedex can be given in natural language, which is parsed by pygodex.
 
-- System
-- Users
-- Network
-- Shell (Bash)
-
-## Used libraries
-
-### PyPlugin - Simple plugin implementation in Python
-
-This is a framework to work with plugins in Python.
-This framework can recursively import plugins in the plugins directory and configure and execute them.
+Pygodex supports multiple pokedexes, creatable and loadable from terminal.
+The terminal prompt is like the Python interpreter, interpreting the commands from the user.
