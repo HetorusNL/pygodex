@@ -1,0 +1,23 @@
+{
+  "bulbasaur": {
+    "name": "Bulbasaur",
+    "id": 1,
+    "evolve_candies": 25,
+    "evolve_into": "ivysaur",
+    "evolve_item": null
+  },
+  "ivysaur": {
+    "name": "Ivysaur",
+    "id": 2,
+    "evolve_candies": 100,
+    "evolve_into": "venusaur",
+    "evolve_item": null
+  },
+  "venusaur": {
+    "name": "Venusaur",
+    "id": 3,
+    "evolve_candies": null,
+    "evolve_into": null,
+    "evolve_item": null
+  }
+}
