@@ -15,9 +15,11 @@ class Pygodex(object):
 
         with open(f"{self.base_path}pygodex_base_dex.json") as f:
             base_dex_json = json.load(f)
+
         self.base_dex = BaseDex()
         self.base_dex.load(base_dex_json)
         self.user_dex = None
+        self.pokedex_file = None
 
     def load(self, pokedex_file):
         """Load the pokedex_file (from the pokedexes folder)
@@ -32,10 +34,28 @@ class Pygodex(object):
             print(f'failed to load pokedex "{pokedex_file}"!')
             return
 
+        # unload if there is a pokedex loaded
+        if self.user_dex:
+            self.unload()
+
+        # load and parse the pokedex file
+        self.pokedex_file = pokedex_file
         self.user_dex = UserDex(pokedex_file, self.base_dex)
         self.user_dex.load(user_dex_json)
 
         print(f"successfully loaded pokedex {pokedex_file}")
+
+    def unload(self):
+        """Unload the pokedex file that is currently loaded, does nothing when
+        no pokedex is currently loaded"""
+
+        if self.user_dex:
+            self.user_dex.unload()
+            self.user_dex = None
+            print("unloaded pokedex {self.pokedex_file}")
+            self.pokedex_file = None
+        else:
+            print("no pokedex is currently loaded")
 
     def create(self, pokedex_file):
         """Create the pokedex_file (from the pokedexes folder)
@@ -44,8 +64,14 @@ class Pygodex(object):
             pokedex_file += ".json"
 
         if os.path.isfile(f"{self.base_path}{pokedex_file}"):
-            raise Exception("pokedex {pokedex_file} already exists!")
+            print(f'pokedex "{pokedex_file}" already exists!')
+            return
+
+        # unload if there is a pokedex loaded
+        if self.user_dex:
+            self.unload()
 
         # pokedex doesn't exist (yet), initialize empty user_dex and create
+        self.pokedex_file = pokedex_file
         self.user_dex = UserDex(pokedex_file, self.base_dex)
         self.user_dex.load(None)

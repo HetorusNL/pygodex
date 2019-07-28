@@ -29,6 +29,8 @@ class Interpreter(object):
             self.print_help()
         elif command["command"] == "load_pokedex":
             self.pygodex.load(command["pokedex"])
+        elif command["command"] == "unload_pokedex":
+            self.pygodex.unload()
         elif command["command"] == "create_pokedex":
             self.pygodex.create(command["pokedex"])
         else:
@@ -56,4 +58,5 @@ class Interpreter(object):
         # syntax lines themselves
         print("parameter   => should be typed literaly")
         print("(parameter) => can be typed, and can be skipped")
-        print("<parameter> => user supplied parameter")
+        print("<parameter> => user supplied parameter/value")
+        print("parA/parB   => supply either parA or parB, both are valid")

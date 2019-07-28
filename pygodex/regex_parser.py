@@ -33,6 +33,13 @@ class RegexParser(object):
                 "command": "load_pokedex",
             },
             {
+                "name": "unload pokedex",
+                "description": "unloads / closes the pokedex",
+                "usage": "close/unload pokedex",
+                "regex": r"(close)|(unload)\s+pokedex$",
+                "command": "unload_pokedex",
+            },
+            {
                 "name": "create pokedex",
                 "description": "creates the pokedex specified",
                 "usage": "create pokedex <name>(.json)",

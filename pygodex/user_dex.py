@@ -19,6 +19,11 @@ class UserDex(object):
 
             pokemon.set_user_dex(name, information)
 
+    def unload(self):
+        for pokemon in self.pokemon:
+            if self.pokemon[pokemon].user_dex:
+                self.pokemon[pokemon].user_dex = None
+
     def initialize_dex(self, user_dex_json):
         """Function to make sure that all pokemon exist in the user dex"""
         should_save = False
