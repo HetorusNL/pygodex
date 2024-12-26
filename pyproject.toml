@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "pygodex"
+version = "0.1.0"
+description = "Pygodex - Python Pokemon Go Pokedex"
+authors = ["Tim Klein Nijenhuis <tim@hetorus.nl>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.11"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.4"
+pytest-watch = "^4.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
